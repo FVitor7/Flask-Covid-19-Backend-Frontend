@@ -166,8 +166,8 @@ class CoronaData:
             self.brazil_deaths,
             localtime)
 
-        with open('index.html', 'w') as file:
-            file.write(index)
+        #with open('index.html', 'w') as file:
+           # file.write(index)
 
 
     def monitor(self):
