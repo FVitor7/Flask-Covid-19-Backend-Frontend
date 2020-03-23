@@ -1,12 +1,17 @@
 from flask import Flask
 from flask import jsonify
+from flask_cors import CORS, cross_origin
 import urllib.request
 import json,os
 
 app = Flask(__name__)
 
 
-@app.route('/')
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+@app.route("/")
+@cross_origin()
 def load_api():
     link = "https://www.bing.com/covid/data"
     with urllib.request.urlopen(link) as response:
