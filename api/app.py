@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template,request
 from flask import jsonify
 from flask_cors import CORS, cross_origin
 import urllib.request
@@ -10,7 +10,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/")
+@app.route("/",methods = ['POST', 'GET'])
 @cross_origin()
 def load_api():
     link = "https://www.bing.com/covid/data"
@@ -47,7 +47,7 @@ def load_api():
         "Brazil": brazil_data_set
     }
     return jsonify(COVID19=corona_array)
-
+    #return render_template('index.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
