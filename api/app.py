@@ -37,10 +37,9 @@ def load_api():
     world_recovered_rate = _calc(world_recovered, world_cases)
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
 
-    world_data_set = {"COVID19 Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
-                      "Recoveries": world_recovered, "Recovered 
-Rate": world_recovered_rate}
-    brazil_data_set = {"COVID19 Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate,
+    world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
+                      "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
+    brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate,
                        "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
 
     corona_array = {
