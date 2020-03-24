@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="120">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a80232805f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>COVID-19 | Mundo & Brasil</title>
+</head>
+
+<body>
+  <div class="titulo">
+    <h1> <i class="fas fa-terminal blink_me"></i> COVID-19 | CORONAVÍRUS | MONITOR</h1>
+  </div>
+  <div=class="conteudo-left">
+    <h2 class="titulo-tabela selecionar">MUNDO</h2>
+    <h2 class="titulo-tabela"> ----------- </h2>
+    <table border="0" class="tabela">
+      <tr class="selecionar">
+        <td>CASOS</td>
+        <td id="world_cases" class="direita"></td>
+      </tr>
+      <tr class="selecionar">
+        <td>MORTES </td>
+        <td id="world_deads" class="direita cor-vermelho"></td>
+      </tr>
+      <tr class="selecionar">
+        <td>RECUPERADOS</td>
+        <td id="world_recovered" class="direita cor-verde"></td>
+      </tr>
+      <tr class="selecionar">
+        <td>TAXA DE LETALIDADE <i class="fas fa-skull-crossbones"></i> </td>
+        <td id="world_dead_rate" class="direita"></td>
+      </tr>
+      <tr class="selecionar">
+        <td>TAXA RECUPERADOS</td>
+        <td id="world_recovered_rate" class="direita"></td>
+      </tr>
+    </table>
+    </div>
+    <div=class="conteudo-right">
+      <h2 class="titulo-tabela selecionar">BRASIL</h2>
+      <h2 class="titulo-tabela"> ----------- </h2>
+      <table border="0">
+        <tr class="selecionar">
+          <td>CASOS</td>
+          <td id="brazil_cases" class="direita"></td>
+        </tr>
+        <tr class="selecionar">
+          <td>MORTES</td>
+          <td id="brazil_deads" class="direita cor-vermelho"></td>
+        </tr>
+        <tr class="selecionar">
+          <td>RECUPERADOS</td>
+          <td id="brazil_recovered" class="direita cor-verde"></td>
+        </tr>
+        <tr class="selecionar">
+          <td>TAXA DE LETALIDADE <i class="fas fa-skull-crossbones"></i> </td>
+          <td id="brazil_dead_rate" class="direita"></td>
+        </tr>
+        <tr class="selecionar">
+          <td>TAXA DE RECUPERADOS </td>
+          <td id="brazil_recovered_rate" class="direita"></td>
+        </tr>
+      </table>
+      </div>
+      <footer class="footer">
+        <div class="selecionar"> 
+        <script language=javascript type="text/javascript">
+        
+          now = new Date
+          
+          monName = new Array("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "agosto", "outubro", "novembro", "dezembro");
+          
+          document.write("Última Atualização: " + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + " as " + now.getHours() + ":" + now.getMinutes())
+        </script>
+        </div>
+        FVitor7: 
+      <a href="https://www.github.com/FVitor7"> <i class="fab fa-github"></i></a>
+      <a href="http://telegram.me/f_Vitor7"> <i class="fab fa-telegram"></i></a>
+      <a href="http://instagram.com/f_vitor7"> <i class="fab fa-instagram"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=+5575992392907"> <i class="fab fa-whatsapp"></i></a>
+      <br>
+      <i class="fas fa-code"></i>
+      <a href="https://github.com/FVitor7/Covid-19-Backend-Frontend" class="btn btn-default">Source Code</a>
+      <i class="fas fa-code"></i>
+      <i class="fab fa-python"></i>
+      <a href="https://covid19search.herokuapp.com/" class="btn btn-default">API</a>
+      <i class="fab fa-python"></i>
+      </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
