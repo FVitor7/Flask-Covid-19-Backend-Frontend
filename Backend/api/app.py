@@ -23,52 +23,44 @@ def load_api():
     world_deaths = _bingdata['totalDeaths']
     world_recovered = _bingdata['totalRecovered']
     world_lastupdated= _bingdata['lastUpdated']
-    #print(world_lastupdated)
 
     # find brazil
     for index, j in enumerate(_bingdata['areas']):
-        # [TODO] change 'brazil' for your country
         if j['id'] == 'brazil':
   
             brazil_cases = _bingdata['areas'][index]['totalConfirmed']
+            
             brazil_deaths = _bingdata['areas'][index]['totalDeaths']
+            
             brazil_recovered = _bingdata['areas'][index]['totalRecovered']
             
             bahia_cases = _bingdata['areas'][index]['areas'][8]['totalConfirmed']
-           # print(bahia_cases)
+          
             bahia_deaths = _bingdata['areas'][index]['areas'][8]['totalDeaths']
-            #print(bahia_deaths)
+            
             bahia_recovered = _bingdata['areas'][index]['areas'][8]['totalRecovered']
-            ##################
+          
             pernambuco_cases = _bingdata['areas'][index]['areas'][12]['totalConfirmed']
-            #print(pernambuco_cases)
+            
             pernambuco_deaths = _bingdata['areas'][index]['areas'][12]['totalDeaths']
-            #print(bahia_deaths)
+           
             pernambuco_recovered = _bingdata['areas'][index]['areas'][12]['totalRecovered']
-           # print(bahia_recovered)
-##################
+          
             saopaulo_cases = _bingdata['areas'][index]['areas'][19]['totalConfirmed']
-            #print(saopaulo_cases)
+           
             saopaulo_deaths = _bingdata['areas'][index]['areas'][19]['totalDeaths']
-            #print(bahia_deaths)
+            
             saopaulo_recovered = _bingdata['areas'][index]['areas'][19]['totalRecovered']
-           # print(bahia_recovered)
-##################
+           
             riodejaneiro_cases = _bingdata['areas'][index]['areas'][18]['totalConfirmed']
             #print(saopaulo_cases)
             riodejaneiro_deaths = _bingdata['areas'][index]['areas'][18]['totalDeaths']
-            #print(bahia_deaths)
             riodejaneiro_recovered = _bingdata['areas'][index]['areas'][18]['totalRecovered']
-           # print(bahia_recovered)
             
             break
             
-    
-    # [TODO] Rating Elements
     _calc = lambda x, y: round(((x * 100) / y), 2)
-    
     	
-    		
     world_death_rate = _calc(world_deaths, world_cases)
     brazil_death_rate = _calc(brazil_deaths, brazil_cases)
     if bahia_deaths is None:
@@ -76,7 +68,7 @@ def load_api():
     	bahia_deaths = '-'
     else:
     	bahia_death_rate = _calc(bahia_deaths, bahia_cases)
-    #########
+   
     if pernambuco_deaths is None:
     	pernambuco_death_rate = '-'
     	pernambuco_deaths = '-'
@@ -98,14 +90,12 @@ def load_api():
     world_recovered_rate = _calc(world_recovered, world_cases)
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
     
-    
     if bahia_recovered is None:
     	bahia_recovered_rate = '-'
     	bahia_recovered = '-'
     else:
     	bahia_recovered_rate = _calc2(bahia_recovered, bahia_cases)
     
-	######   
     if pernambuco_recovered is None:
     	pernambuco_recovered_rate = '-'
     	pernambuco_recovered = '-'
@@ -124,19 +114,24 @@ def load_api():
     else:
     	riodejaneiro_recovered_rate = _calc2(riodejaneiro_recovered, riodejaneiro_cases)  
     			    			
-    world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
-                      "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate, "LastUpdated":world_lastupdated}
+    world_data_set = {"COVID19Cases":
+      world_cases, "Deaths": world_deaths,
+      "DeathRate": world_death_rate,
+      "Recoveries": world_recovered,"RecoveredRate":
+        world_recovered_rate, "LastUpdated":world_lastupdated}
     
     brazil_data_set = {"COVID19Cases":
     	brazil_cases, "Deaths": brazil_deaths,
     	"DeathRate": brazil_death_rate,
     	"Recoveries": brazil_recovered,
     	"RecoveredRate": brazil_recovered_rate}
+  
     bahia_data_set = {"COVID19Cases":
     	bahia_cases, "Deaths": bahia_deaths,
     	"DeathRate": bahia_death_rate,
     	"Recoveries": bahia_recovered,
     	"RecoveredRate": bahia_recovered_rate}
+   
     pernambuco_data_set = {"COVID19Cases":
     	pernambuco_cases, "Deaths":
     		pernambuco_deaths, "DeathRate":
@@ -144,6 +139,7 @@ def load_api():
     			"Recoveries": pernambuco_recovered,
     			"RecoveredRate":
     				pernambuco_recovered_rate}
+    
     saopaulo_data_set = {"COVID19Cases":
 		saopaulo_cases, "Deaths":
 			saopaulo_deaths, "DeathRate":
@@ -151,6 +147,7 @@ def load_api():
 					saopaulo_recovered,
 					"RecoveredRate":
 						saopaulo_recovered_rate}
+    
     riodejaneiro_data_set = {"COVID19Cases":
 		riodejaneiro_cases, "Deaths":
 			riodejaneiro_deaths, "DeathRate":
@@ -158,7 +155,6 @@ def load_api():
 					riodejaneiro_recovered,
 					"RecoveredRate":
 						riodejaneiro_recovered_rate}
-    
     
     corona_array = {
         "World": world_data_set,
