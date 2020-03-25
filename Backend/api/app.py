@@ -12,6 +12,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/",methods = ['POST', 'GET'])
 @cross_origin()
+
 def load_api():
     link = "https://www.bing.com/covid/data"
     with urllib.request.urlopen(link) as response:
@@ -50,6 +51,7 @@ def load_api():
     brazil_death_rate = _calc(brazil_deaths, brazil_cases)
     if bahia_deaths is None:
     	bahia_death_rate = '-'
+    	bahia_deaths = '-'
     else:
     	bahia_death_rate = _calc(bahia_deaths, bahia_cases)
     
@@ -58,6 +60,7 @@ def load_api():
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
     if bahia_recovered is None:
     	bahia_recovered_rate = '-'
+    	bahia_recovered = '-'
     else:
     	bahia_recovered_rate = _calc2(bahia_recovered, bahia_cases)
     
@@ -73,6 +76,7 @@ def load_api():
         "Bahia": bahia_data_set,
         
     }
+
     return jsonify(COVID19=corona_array)
     #return render_template('index.html')
 
