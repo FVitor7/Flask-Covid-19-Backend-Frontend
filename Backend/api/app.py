@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template,request
 from flask import jsonify
 from flask_cors import CORS, cross_origin
@@ -27,26 +26,55 @@ def load_api():
     for index, j in enumerate(_bingdata['areas']):
         # [TODO] change 'brazil' for your country
         if j['id'] == 'brazil':
+  
             brazil_cases = _bingdata['areas'][index]['totalConfirmed']
             brazil_deaths = _bingdata['areas'][index]['totalDeaths']
             brazil_recovered = _bingdata['areas'][index]['totalRecovered']
+            
+            #bahia_cases = _bingdata['areas'][index]['areas'][8]['totalConfirmed']
+            #print(bahia_cases)
+            bahia_deaths = _bingdata['areas'][index]['areas'][8]['totalDeaths']
+            #print(bahia_deaths)
+            bahia_recovered = _bingdata['areas'][index]['areas'][8]['totalRecovered']
+           # print(bahia_recovered)
+            
             break
+            
+    
     # [TODO] Rating Elements
     _calc = lambda x, y: round(((x * 100) / y), 2)
+    
+    	
+    		
     world_death_rate = _calc(world_deaths, world_cases)
     brazil_death_rate = _calc(brazil_deaths, brazil_cases)
+    if bahia_deaths is None:
+    	bahia_death_rate = '-'
+    else:
+    	bahia_death_rate = _calc(bahia_deaths, bahia_cases)
+    
+    
     world_recovered_rate = _calc(world_recovered, world_cases)
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
-
+    if bahia_recovered is None:
+    	bahia_recovered_rate = '-'
+    else:
+    	bahia_recovered_rate = _calc2(bahia_recovered, bahia_cases)
+    
+    
     world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
                       "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
-    brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate,
-                       "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
-
+    brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate, "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
+    bahia_data_set = {"COVID19Cases": brazil_cases, "Deaths": bahia_deaths, "DeathRate": bahia_death_rate, "Recoveries": bahia_recovered, "RecoveredRate": bahia_recovered_rate}
+    
     corona_array = {
-        "World": world_data_set,
-        "Brazil": brazil_data_set
+    "Bahia": bahia_data_set,
+    "Brazil": brazil_data_set,
+    "World": world_data_set,
+        
+        
     }
+    
     return jsonify(COVID19=corona_array)
     #return render_template('index.html')
 
