@@ -44,6 +44,20 @@ def load_api():
             #print(bahia_deaths)
             pernambuco_recovered = _bingdata['areas'][index]['areas'][12]['totalRecovered']
            # print(bahia_recovered)
+##################
+            saopaulo_cases = _bingdata['areas'][index]['areas'][19]['totalConfirmed']
+            #print(saopaulo_cases)
+            saopaulo_deaths = _bingdata['areas'][index]['areas'][19]['totalDeaths']
+            #print(bahia_deaths)
+            saopaulo_recovered = _bingdata['areas'][index]['areas'][19]['totalRecovered']
+           # print(bahia_recovered)
+##################
+            riodejaneiro_cases = _bingdata['areas'][index]['areas'][18]['totalConfirmed']
+            #print(saopaulo_cases)
+            riodejaneiro_deaths = _bingdata['areas'][index]['areas'][18]['totalDeaths']
+            #print(bahia_deaths)
+            riodejaneiro_recovered = _bingdata['areas'][index]['areas'][18]['totalRecovered']
+           # print(bahia_recovered)
             
             break
             
@@ -66,10 +80,23 @@ def load_api():
     	pernambuco_deaths = '-'
     else:
     	pernambuco_death_rate = _calc(pernambuco_deaths, pernambuco_cases)
-    
-    
+
+    if saopaulo_deaths is None:
+    	saopaulo_death_rate = '-'
+    	saopaulo_deaths = '-'
+    else:
+    	saopaulo_death_rate = _calc(saopaulo_deaths, saopaulo_cases)    
+
+    if riodejaneiro_deaths is None:
+    	riodejaneiro_death_rate = '-'
+    	riodejaneiro_deaths = '-'
+    else:
+    	riodejaneiro_death_rate = _calc(riodejaneiro_deaths, riodejaneiro_cases)
+
     world_recovered_rate = _calc(world_recovered, world_cases)
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
+    
+    
     if bahia_recovered is None:
     	bahia_recovered_rate = '-'
     	bahia_recovered = '-'
@@ -83,21 +110,61 @@ def load_api():
     else:
     	pernambuco_recovered_rate = _calc2(pernambuco_recovered, pernambuco_cases) 
     	
+    if saopaulo_recovered is None:
+    	saopaulo_recovered_rate = '-'
+    	saopaulo_recovered = '-'
+    else:
+    	saopaulo_recovered_rate = _calc2(saopaulo_recovered, saopaulo_cases)
+    	
+    if riodejaneiro_recovered is None:
+    	riodejaneiro_recovered_rate = '-'
+    	riodejaneiro_recovered = '-'
+    else:
+    	riodejaneiro_recovered_rate = _calc2(riodejaneiro_recovered, riodejaneiro_cases)  
+    			    			
     world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
                       "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
-    brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate, "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
-    bahia_data_set = {"COVID19Cases": bahia_cases, "Deaths": bahia_deaths, "DeathRate": bahia_death_rate, "Recoveries": bahia_recovered, "RecoveredRate": bahia_recovered_rate}
+    brazil_data_set = {"COVID19Cases":
+    	brazil_cases, "Deaths": brazil_deaths,
+    	"DeathRate": brazil_death_rate,
+    	"Recoveries": brazil_recovered,
+    	"RecoveredRate": brazil_recovered_rate}
+    bahia_data_set = {"COVID19Cases":
+    	bahia_cases, "Deaths": bahia_deaths,
+    	"DeathRate": bahia_death_rate,
+    	"Recoveries": bahia_recovered,
+    	"RecoveredRate": bahia_recovered_rate}
+    pernambuco_data_set = {"COVID19Cases":
+    	pernambuco_cases, "Deaths":
+    		pernambuco_deaths, "DeathRate":
+    			pernambuco_death_rate,
+    			"Recoveries": pernambuco_recovered,
+    			"RecoveredRate":
+    				pernambuco_recovered_rate}
+    saopaulo_data_set = {"COVID19Cases":
+		saopaulo_cases, "Deaths":
+			saopaulo_deaths, "DeathRate":
+				saopaulo_death_rate, "Recoveries":
+					saopaulo_recovered,
+					"RecoveredRate":
+						saopaulo_recovered_rate}
+    riodejaneiro_data_set = {"COVID19Cases":
+		riodejaneiro_cases, "Deaths":
+			riodejaneiro_deaths, "DeathRate":
+				riodejaneiro_death_rate, "Recoveries":
+					riodejaneiro_recovered,
+					"RecoveredRate":
+						riodejaneiro_recovered_rate}
     
-    pernambuco_data_set = {"COVID19Cases": pernambuco_cases, "Deaths": pernambuco_deaths, "DeathRate": pernambuco_death_rate, "Recoveries": pernambuco_recovered, "RecoveredRate": pernambuco_recovered_rate}
     
     corona_array = {
         "World": world_data_set,
         "Brazil": brazil_data_set,
+        "SaoPaulo": saopaulo_data_set,
+        "RiodeJaneiro": riodejaneiro_data_set,
         "Bahia": bahia_data_set,
-        "Pernambuco": pernambuco_data_set,
-        
+        "Pernambuco": pernambuco_data_set,      
     }
-
     return jsonify(COVID19=corona_array)
     #return render_template('index.html')
 
