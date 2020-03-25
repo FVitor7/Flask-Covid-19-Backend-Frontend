@@ -22,6 +22,8 @@ def load_api():
     world_cases = _bingdata['totalConfirmed']
     world_deaths = _bingdata['totalDeaths']
     world_recovered = _bingdata['totalRecovered']
+    world_lastupdated= _bingdata['lastUpdated']
+    #print(world_lastupdated)
 
     # find brazil
     for index, j in enumerate(_bingdata['areas']):
@@ -123,7 +125,8 @@ def load_api():
     	riodejaneiro_recovered_rate = _calc2(riodejaneiro_recovered, riodejaneiro_cases)  
     			    			
     world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
-                      "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
+                      "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate, "LastUpdated":world_lastupdated}
+    
     brazil_data_set = {"COVID19Cases":
     	brazil_cases, "Deaths": brazil_deaths,
     	"DeathRate": brazil_death_rate,
@@ -165,6 +168,7 @@ def load_api():
         "Bahia": bahia_data_set,
         "Pernambuco": pernambuco_data_set,      
     }
+    
     return jsonify(COVID19=corona_array)
     #return render_template('index.html')
 
