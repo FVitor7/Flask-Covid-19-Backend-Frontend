@@ -37,6 +37,12 @@ def load_api():
             bahia_deaths = _bingdata['areas'][index]['areas'][8]['totalDeaths']
             #print(bahia_deaths)
             bahia_recovered = _bingdata['areas'][index]['areas'][8]['totalRecovered']
+            ##################
+            pernambuco_cases = _bingdata['areas'][index]['areas'][12]['totalConfirmed']
+            #print(pernambuco_cases)
+            pernambuco_deaths = _bingdata['areas'][index]['areas'][12]['totalDeaths']
+            #print(bahia_deaths)
+            pernambuco_recovered = _bingdata['areas'][index]['areas'][12]['totalRecovered']
            # print(bahia_recovered)
             
             break
@@ -54,6 +60,12 @@ def load_api():
     	bahia_deaths = '-'
     else:
     	bahia_death_rate = _calc(bahia_deaths, bahia_cases)
+    #########
+    if pernambuco_deaths is None:
+    	pernambuco_death_rate = '-'
+    	pernambuco_deaths = '-'
+    else:
+    	pernambuco_death_rate = _calc(pernambuco_deaths, pernambuco_cases)
     
     
     world_recovered_rate = _calc(world_recovered, world_cases)
@@ -64,16 +76,25 @@ def load_api():
     else:
     	bahia_recovered_rate = _calc2(bahia_recovered, bahia_cases)
     
-    
+	######   
+    if pernambuco_recovered is None:
+    	pernambuco_recovered_rate = '-'
+    	pernambuco_recovered = '-'
+    else:
+    	pernambuco_recovered_rate = _calc2(pernambuco_recovered, pernambuco_cases) 
+    	
     world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
                       "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
     brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate, "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
     bahia_data_set = {"COVID19Cases": bahia_cases, "Deaths": bahia_deaths, "DeathRate": bahia_death_rate, "Recoveries": bahia_recovered, "RecoveredRate": bahia_recovered_rate}
     
+    pernambuco_data_set = {"COVID19Cases": pernambuco_cases, "Deaths": pernambuco_deaths, "DeathRate": pernambuco_death_rate, "Recoveries": pernambuco_recovered, "RecoveredRate": pernambuco_recovered_rate}
+    
     corona_array = {
         "World": world_data_set,
         "Brazil": brazil_data_set,
         "Bahia": bahia_data_set,
+        "Pernambuco": pernambuco_data_set,
         
     }
 
