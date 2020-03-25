@@ -31,8 +31,8 @@ def load_api():
             brazil_deaths = _bingdata['areas'][index]['totalDeaths']
             brazil_recovered = _bingdata['areas'][index]['totalRecovered']
             
-            #bahia_cases = _bingdata['areas'][index]['areas'][8]['totalConfirmed']
-            #print(bahia_cases)
+            bahia_cases = _bingdata['areas'][index]['areas'][8]['totalConfirmed']
+           # print(bahia_cases)
             bahia_deaths = _bingdata['areas'][index]['areas'][8]['totalDeaths']
             #print(bahia_deaths)
             bahia_recovered = _bingdata['areas'][index]['areas'][8]['totalRecovered']
@@ -50,7 +50,6 @@ def load_api():
     brazil_death_rate = _calc(brazil_deaths, brazil_cases)
     if bahia_deaths is None:
     	bahia_death_rate = '-'
-    	bahia_deaths = '-'
     else:
     	bahia_death_rate = _calc(bahia_deaths, bahia_cases)
     
@@ -58,7 +57,6 @@ def load_api():
     world_recovered_rate = _calc(world_recovered, world_cases)
     brazil_recovered_rate = _calc(brazil_recovered, brazil_cases)
     if bahia_recovered is None:
-    	bahia_recovered = '-'
     	bahia_recovered_rate = '-'
     else:
     	bahia_recovered_rate = _calc2(bahia_recovered, bahia_cases)
@@ -67,16 +65,14 @@ def load_api():
     world_data_set = {"COVID19Cases": world_cases, "Deaths": world_deaths, "DeathRate": world_death_rate,
                       "Recoveries": world_recovered, "RecoveredRate": world_recovered_rate}
     brazil_data_set = {"COVID19Cases": brazil_cases, "Deaths": brazil_deaths, "DeathRate": brazil_death_rate, "Recoveries": brazil_recovered, "RecoveredRate": brazil_recovered_rate}
-    bahia_data_set = {"COVID19Cases": brazil_cases, "Deaths": bahia_deaths, "DeathRate": bahia_death_rate, "Recoveries": bahia_recovered, "RecoveredRate": bahia_recovered_rate}
+    bahia_data_set = {"COVID19Cases": bahia_cases, "Deaths": bahia_deaths, "DeathRate": bahia_death_rate, "Recoveries": bahia_recovered, "RecoveredRate": bahia_recovered_rate}
     
     corona_array = {
-    "Bahia": bahia_data_set,
-    "Brazil": brazil_data_set,
-    "World": world_data_set,
-        
+        "World": world_data_set,
+        "Brazil": brazil_data_set,
+        "Bahia": bahia_data_set,
         
     }
-    
     return jsonify(COVID19=corona_array)
     #return render_template('index.html')
 
