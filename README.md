@@ -1,3 +1,3 @@
-# Covid-19-Backend-Frontend
+# Covid19 Backend-Frontend
 
-Baseado no projeto: https://github.com/jhoonb/corona
+Based on the project: https://github.com/jhoonb/corona
