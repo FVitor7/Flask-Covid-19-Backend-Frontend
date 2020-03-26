@@ -84,25 +84,29 @@
           </select>
           <button id="sdados">Pesquisar</button>
      </div>
-   <footer class="footer">
-       
-         <td class="hora", id="idhora"></td></td>
-          Última Atualização:
-    <div>
-        FVitor7: 
-      <a href="https://www.github.com/FVitor7"> <i class="fab fa-github"></i></a>
-      <a href="http://telegram.me/f_Vitor7"> <i class="fab fa-telegram"></i></a>
-      <a href="http://instagram.com/f_vitor7"> <i class="fab fa-instagram"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=+5575992392907"> <i class="fab fa-whatsapp"></i></a>
-      <br>
-      <i class="fas fa-code"></i>
-      <a href="https://github.com/FVitor7/Covid-19-Backend-Frontend" class="btn btn-default">Source Code</a>
-      <i class="fas fa-code"></i>
-      <i class="fab fa-python"></i>
-      <a href="https://covid19search.herokuapp.com/" class="btn btn-default">API</a>
-      <i class="fab fa-python"></i>
-      </footer>
-    </div>
-  <script src="js/script.js"></script>
+<footer class="footer">
+  <div class="selecionar">
+    <script language=javascript type="text/javascript">
+      now = new Date
+
+      monName = new Array("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "agosto", "outubro", "novembro", "dezembro");
+
+      document.write("Última Atualização: " + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + " as " + now.getHours() + ":" + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes())
+    </script>
+  </div>
+  FVitor7:
+  <a href="https://www.github.com/FVitor7"> <i class="fab fa-github"></i></a>
+  <a href="http://telegram.me/f_Vitor7"> <i class="fab fa-telegram"></i></a>
+  <a href="http://instagram.com/f_vitor7"> <i class="fab fa-instagram"></i></a>
+  <a href="https://api.whatsapp.com/send?phone=+5575992392907"> <i class="fab fa-whatsapp"></i></a>
+  <br>
+  <i class="fas fa-code"></i>
+  <a href="https://github.com/FVitor7/Covid-19-Backend-Frontend" class="btn btn-default">Source Code</a>
+  <i class="fas fa-code"></i>
+  <i class="fab fa-python"></i>
+  <a href="https://covid19search.herokuapp.com/" class="btn btn-default">API</a>
+  <i class="fab fa-python"></i>
+</footer>
+<script src="js/script.js"></script>
 </body>
 </html>
