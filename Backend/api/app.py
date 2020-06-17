@@ -14,7 +14,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 
 def load_api():
-    link = "https://www.bing.com/covid/data"
+    link = "https://github.com/microsoft/Bing-COVID-19-Data/blob/master/data/Bing-COVID19-Data.csv?raw=true"
     with urllib.request.urlopen(link) as response:
         json_data = response.read().decode("utf-8")
         _bingdata = json.loads(json_data)
