@@ -4,3 +4,4 @@ Werkzeug==1.0.0
 flask_cors==3.0.8
 bs4==0.0.1
 beautifulsoup4==4.9.1
+requests==2.24.0
