@@ -130,7 +130,7 @@ def load_api():
     	"Recoveries": b2,
 		"ActiveCases": bt0,
 	  	"MildCondition": bnt0,
-	  	"SeriousOrCritical": bnt0,
+	  	"SeriousOrCritical": bnt1,
 		"ConditionRate": str(brazil_condition_rate),
 	  	"CriticalRate": str(brazil_critical_rate),
 	  	"ClosedCases": bt1,
