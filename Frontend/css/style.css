@@ -87,6 +87,14 @@ body {
   color: rgb(206, 0, 0);
 }
 
+.updt {
+  font-size: 0.6rem;
+  text-align: center;
+}
+.updt2 {
+  font-size: 0.6rem;
+  text-align: center;
+}
 .wrapper {
   min-height: 100%;
   display: grid;
