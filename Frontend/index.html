@@ -26,74 +26,82 @@
         <td id="world_cases" class="direita"></td>
       </tr>
       <tr class="selecionar">
-        <td>MORTES </td>
+        <td>MORTES <i class="fas fa-skull-crossbones"></i></td>
         <td id="world_deads" class="direita cor-vermelho"></td>
       </tr>
+      
       <tr class="selecionar">
-        <td>RECUPERADOS</td>
+       
+        <td>RECUPERADOS <i class="fa fa-life-ring" aria-hidden="true"></i></td>
         <td id="world_recovered" class="direita cor-verde"></td>
       </tr>
       <tr class="selecionar">
-        <td>TAXA DE LETALIDADE <i class="fas fa-skull-crossbones"></i> </td>
-        <td id="world_dead_rate" class="direita"></td>
+           
+        <td>------------</td>
+        <td  class="direita"></td>
       </tr>
       <tr class="selecionar">
-        <td>TAXA DE RECUPERADOS</td>
-        <td id="world_recovered_rate" class="direita"></td>
+       
+        <td>CASOS ATIVOS</td>
+        <td id="world_active" class="direita"></td>
       </tr>
+
+      <tr class="selecionar">
+        <td>CASOS LEVES</td>
+        <td id="world_condition" class="direita cor-verde"></td>
+      </tr>
+
+      <tr class="selecionar">
+        <td>CASOS GRAVES</td>
+        <td id="world_critical" class="direita cor-vermelho"></td>
+      </tr>
+
+      
     </table>
   </div>
   
   <div=class="conteudo-right">
          <h2 class="titulo-tabela selecionar">BRASIL</h2>
          <table border="0" class="tabela">
-           <tr class="selecionar">
-             <td>CASOS</td>
-             <td id="brazil_cases" class="direita"></td>
-           </tr>
-           <tr class="selecionar">
-             <td>MORTES </td>
-             <td id="brazil_deads" class="direita cor-vermelho"></td>
-           </tr>
-           <tr class="selecionar">
-             <td>RECUPERADOS</td>
-             <td id="brazil_recovered" class="direita cor-verde"></td>
-           </tr>
-           <tr class="selecionar">
-             <td>TAXA DE LETALIDADE <i class="fas fa-skull-crossbones"></i> </td>
-             <td id="brazil_dead_rate" class="direita"></td>
-           </tr>
-           <tr class="selecionar">
-             <td>TAXA DE RECUPERADOS</td>
-             <td id="brazil_recovered_rate" class="direita"></td>
-           </tr>
-         </table>
-           <br>
-           <td>Pesquisa por Estado ou Região</td>
-           <br>
-          <label for="estado">Selecione:</label>
-          <select id="estado" name="estado">
-             <option value="brazil">Brasil</option>
-            <option value="bahia_brazil">Bahia</option>
-
-            <option value="pernambuco_brazil">Pernambuco</option>
-                    
-            <option value="sopaulo_brazil">São Paulo</option>
-            <option value="riodejaneiro_brazil">Rio de Janeiro</option>
+          <tr class="selecionar">
+            <td>CASOS</td>
+            <td id="brazil_cases" class="direita"></td>
+          </tr>
+          <tr class="selecionar">
+            <td>MORTES <i class="fas fa-skull-crossbones"></i></td>
+            <td id="brazil_deads" class="direita cor-vermelho"></td>
+          </tr>
+          
+          <tr class="selecionar">
            
-          </select>
-          <button id="sdados">Pesquisar</button>
+            <td>RECUPERADOS <i class="fa fa-life-ring" aria-hidden="true"></i></td>
+            <td id="brazil_recovered" class="direita cor-verde"></td>
+          </tr>
+
+          <tr class="selecionar">
+           
+            <td>------------</td>
+            <td  class="direita"></td>
+          </tr>
+    
+          <tr class="selecionar">
+           
+            <td>CASOS ATIVOS</td>
+            <td id="brazil_active" class="direita"></td>
+          </tr>
+    
+          <tr class="selecionar">
+            <td>CASOS LEVES</td>
+            <td id="brazil_condition" class="direita cor-verde"></td>
+          </tr>
+    
+          <tr class="selecionar">
+            <td>CASOS GRAVES</td>
+            <td id="brazil_critical" class="direita cor-vermelho"></td>
+          </tr>
+         
      </div>
 <footer class="footer">
-  <div class="selecionar">
-    <script language=javascript type="text/javascript">
-      now = new Date
-
-      monName = new Array("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "agosto", "outubro", "novembro", "dezembro");
-
-      document.write("Última Atualização: " + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + " as " + now.getHours() + ":" + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes())
-    </script>
-  </div>
   FVitor7:
   <a href="https://www.github.com/FVitor7"> <i class="fab fa-github"></i></a>
   <a href="http://telegram.me/f_Vitor7"> <i class="fab fa-telegram"></i></a>
